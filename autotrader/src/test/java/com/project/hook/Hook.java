@@ -41,8 +41,8 @@ public class Hook extends BaseClass
 		{
 			try 
 			{
-				//byte[] screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
-				//scenario.embed(screenshot, fileName);
+				byte[] screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+				scenario.embed(screenshot, fileName);
 				
 				FileUtils.copyFile(takeScreenshot(), new File(fileName));
 			}
