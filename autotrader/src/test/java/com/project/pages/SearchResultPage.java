@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
 import com.project.common.BaseClass;
+import com.project.util.StoredValues;
 
 public class SearchResultPage extends BaseClass
 {
@@ -37,6 +38,20 @@ public class SearchResultPage extends BaseClass
 		}
 		
 
+	}
+	
+	public ResultDetailPage clickOnResultLink() throws Exception
+	{
+		result = getElementsByCssSelector(".listing-title.title-wrap");
+		
+		
+		String linkText = result.get(0).getText();
+		
+		new StoredValues().store("StoredList", linkText);
+		
+		result.get(0).click();
+		
+		return new ResultDetailPage();
 	}
 	
 	

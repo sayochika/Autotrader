@@ -172,18 +172,18 @@ public class BaseClass
 	}
 	
 	
-	public static void saveScreenshot() throws Exception
-	{
-		String dateOfFailure = new SimpleDateFormat("ddMMyy").format(new GregorianCalendar().getTime());
-		String timeOfFailure = new SimpleDateFormat("HHmmss").format(new GregorianCalendar().getTime());
-		
-		String fileName = String.format(".\\Screenshot\\%s\\screenshot_%s", dateOfFailure, timeOfFailure);
-		
-		//The line below is within FileUtils.copyFile
-		//File screenshot = takeScreenshot();
-		
-		FileUtils.copyFile(takeScreenshot(), new File(fileName));
-	}
+//	public static void saveScreenshot() throws Exception
+//	{
+//		String dateOfFailure = new SimpleDateFormat("ddMMyy").format(new GregorianCalendar().getTime());
+//		String timeOfFailure = new SimpleDateFormat("HHmmss").format(new GregorianCalendar().getTime());
+//		
+//		String fileName = String.format(".\\Screenshot\\%s\\screenshot_%s", dateOfFailure, timeOfFailure);
+//		
+//		//The line below is within FileUtils.copyFile
+//		//File screenshot = takeScreenshot();
+//		
+//		FileUtils.copyFile(takeScreenshot(), new File(fileName));
+//	}
 	
 	public static WebElement getElementById(String id) throws Exception
 	{
@@ -256,7 +256,7 @@ public class BaseClass
 			{
 				if(tryCount == 3)
 				{
-					saveScreenshot();
+					//saveScreenshot();
 					throw e;
 				}
 			}
@@ -288,7 +288,7 @@ public class BaseClass
 			{
 				if(tryCount == 3)
 				{
-					saveScreenshot();
+					//saveScreenshot();
 					throw e;
 				}
 			}

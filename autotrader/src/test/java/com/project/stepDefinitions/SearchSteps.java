@@ -3,6 +3,7 @@ package com.project.stepDefinitions;
 
 import com.project.common.BaseClass;
 import com.project.pages.HomePage;
+import com.project.pages.ResultDetailPage;
 import com.project.pages.SearchResultPage;
 
 import cucumber.api.java.en.Given;
@@ -14,6 +15,7 @@ public class SearchSteps extends BaseClass
 	
 	HomePage homepage = new HomePage();
 	SearchResultPage searchresultpage = new SearchResultPage();
+	ResultDetailPage detailpage = new ResultDetailPage();
 	
 	@Given("^I am on autotrader homepage$")
 	public void iAmOnAutotraderHomepage() throws Throwable {
@@ -81,7 +83,15 @@ public class SearchSteps extends BaseClass
 	}
 
 
-	
+	@When("^I select the first car on the list$")
+	public void i_select_the_first_car_on_the_list() throws Throwable {
+		detailpage = searchresultpage.clickOnResultLink();
+	}
+
+	@Then("^the car selected is actually displayed$")
+	public void the_car_selected_is_actually_displayed() throws Throwable {
+	    detailpage.isCorrectCarDisplayed();
+	}
 	
 	
 

@@ -1,5 +1,6 @@
 package com.project.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
 import com.project.common.BaseClass;
@@ -11,6 +12,7 @@ public class HomePage extends BaseClass
 	private WebElement make;
 	private WebElement model;
 	private WebElement searchButton;
+	private WebElement WrongPostCodeFormatError;
 	
 	public void enterPostcode() throws Exception
 	{
@@ -71,5 +73,23 @@ public class HomePage extends BaseClass
 		return new SearchResultPage();
 	}
 	
+	public void clickonSearchButtonAndRemainOnHomepage() throws Exception
+	{
+		searchButton = getElementById("js-search-button");
+		searchButton.click();
+	}
+	
+	public void isHomepageDisplayed() throws Exception
+	{
+		Thread.sleep(3000);
+		String url = driver.getCurrentUrl();
+		Assert.assertTrue(url.equalsIgnoreCase("https://www.autotrader.co.uk/"));
+	}
+	
+	public void isErrorMessageDisplayedForWrongPostcodeFormat() throws Exception
+	{
+		WrongPostCodeFormatError = getElementByCssSelector(".c-form__input.has-error");
+		Assert.assertTrue(WrongPostCodeFormatError.isDisplayed());
+	}
 	
 }
