@@ -12,6 +12,6 @@ import cucumber.api.junit.Cucumber;
 		glue = {"com/project/hook", "com/project/stepDefinitions"},
 		tags = {"@SmokeTest"}		
 		)
-public class RunnerSmokeTest {
+public class RunnerSmoke {
 
 }
